@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de clientes</div>  
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Url</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="client in model.list" id="tr_{{client._id}}">
+                        <td>{{client.name}}</td>
+                        <td>{{client.url}}</td>
+                        <td>{{client.description}}</td>
+                        <td style="text-align: right">
+                            <button class="btn btn-floating btn-view"><span class="glyphicon glyphicon-search" ></span></button>
+                            <a href="#!/client/update/{{client._id}}"><button class="btn btn-floating btn-update" ><span class="glyphicon glyphicon-pencil" ></span></button></a>
+                            <button class="btn btn-floating btn-delete" ng-click="model.delete(client._id)"><span class="glyphicon glyphicon-remove" ></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

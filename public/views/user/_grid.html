@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de usuários</div>
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table class="table table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Url</th>
+                            <th>Descrição</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in model.list" id="tr_{{user._id}}">
+                            <td>{{user.name}} {{user.lastname}}</td>
+                            <td>{{user.cpf}}</td>
+                            <td>{{user.email}}</td>
+                            <td style="text-align: right">
+                                <button class="btn btn-floating btn-view"><span class="glyphicon glyphicon-search" ></span></button>
+                                <a href="#!user/update/{{user._id}}"><button class="btn btn-floating btn-update" ><span class="glyphicon glyphicon-pencil" ></span></button></a>
+                                <button class="btn btn-floating btn-delete" ng-click="model.delete(user._id)"><span class="glyphicon glyphicon-remove" ></span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

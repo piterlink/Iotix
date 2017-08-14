@@ -1,0 +1,31 @@
+{
+  "name": "iotix",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Piter Raphael Oliveira e Silva"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "angular": "^1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-route": "1.5.8",
+    "oclazyload": "^1.0.9",
+    "materialize": "^0.97.7",
+    "bootstrap": "^3.3.7",
+    "ngstorage": "^0.3.11",
+    "angular-cookies": "^1.6.4",
+    "mqtt": "^2.6.2",
+    "chart.js": "^2.5.0",
+    "angular-chart.js": "^1.1.1"
+  }
+}

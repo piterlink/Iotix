@@ -1,0 +1,21 @@
+<h2 style="color:#fff"> Login </h2>
+<div style="padding-bottom:15px; background-color: rgba(255,255,255,0.3)" class="col-xs-12 col-sm-3">
+     
+    <div ng-controller="SiteLoginController as model" class="col-xs-12  ">       
+        <form>
+            <div class="form-group  ">
+                <label for="name">Username</label>
+                <input class="form-control" id="name" type="text" ng-model="model.form.username" value="{{model.form.name}}">
+            </div>
+            <div class="form-group ">
+                <label for="name">Senha</label>
+                <input class="form-control" id="name" type="password" ng-model="model.form.password" value="{{model.form.name}}">
+                <br>
+                <!--<div class="g-recaptcha" data-sitekey="6LdbCh0UAAAAAC0re5uE3aeudTS4VR1_jJ-7JMW-"></div>-->
+            </div>
+            <div class="">
+                <button type="submit" class="btn " ng-click="model.login(model.form)">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

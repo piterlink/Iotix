@@ -1,0 +1,28 @@
+<div style="margin: auto; position: relative">
+    <div class="col-xs-4"></div>
+    <div ng-controller="SiteLoginController as model" class="col-xs-12 col-sm-4 ">
+        <div class="panel-login" style="margin-top:20%">
+            <div class="panel-heading" style="color:#009688"><h1> {{model.title}}<small></small></h1></div>
+            <div class="panel-body">                
+                <div class="row">
+                    <form>
+                        <div class="form-group col-xs-12 col-sm-12 ">
+                            <label for="name">Username</label>
+                            <input class="form-control" id="name" type="text" ng-model="model.form.username" value="{{model.form.name}}">
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 ">
+                            <label for="name">Senha</label>
+                            <input class="form-control" id="name" type="password" ng-model="model.form.password" value="{{model.form.name}}">
+                            <br>
+                            <!--<div class="g-recaptcha" data-sitekey="6LdbCh0UAAAAAC0re5uE3aeudTS4VR1_jJ-7JMW-"></div>-->
+                        </div>
+                        <div class=" col-xs-12">
+                            <button type="submit" class="btn " ng-click="model.login(model.form)" style="color:black">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3"></div>
+</div>

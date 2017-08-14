@@ -1,0 +1,153 @@
+<div class=" col-lg-4 col-md-12 col-sm-12 col-xs-12 cardDevice " ng-repeat="device in model.list track by $index" id="device{{device._id}}">
+    <div class="fadeI painel painel_atuador_padrao " ng-if="device.hardware.class === 'atuador_padrao'">
+        <div class="painel_title">
+            {{device.name}} - {{device.area}} - {{device.local}}
+        </div>
+        <div class="painel_content">
+            <div class="painel-txt" style="max-height: 100px;">
+                <div>
+                    <!--{{device._id}}-->
+                    {{device.description}}
+                </div>
+                <div style="height: 30px"></div>
+                <div class="painel-updated">
+                    <span id="modified{{device._id}}" style="float:right; color: #ddd; bottom:0; font-size: 12px;" class="hidden-xs">Atualizado: {{device.modified|  date:"dd/MM '-' H:mm:ss"}}</span>
+                </div>
+                <div class="painel-connection">Status:
+                    <span ng-if="device.connection=='OFFLINE'" style="color:rgba(255,255,255,.5)">Indisponível</span>
+                    <span ng-if="device.connection=='ONLINE'" style="color:#fff">Disponível</span>
+                    <!--<span ng-if="device.connection=='AGUARDANDO'" style="color:#FF8F00">Aguardando</span>-->
+                </div>
+            </div>
+
+            <div class="painel-img">
+                <img id="device-img-{{device._id}}" class="imgDevice" width="100" height="100" src="img/{{device.hardware.img}}.png" />
+            </div>
+        </div>
+
+        <div class="painel-buttons">
+            <div style="text-align: right;" ng-if="device.connection=='ONLINE'">
+                <!--<div class="col-xs-12" style="text-align: right;" >-->
+                <button class="painel-btn painel-btn-toggle" ng-click="model.updateState(device._id, 'toggle')"><span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span></button>
+                <button class="painel-btn painel-btn-on" ng-click="model.updateState(device._id, 'on')"><span class="glyphicon glyphicon-flash" aria-hidden="true" ></span></button>
+                <button class="painel-btn painel-btn-off" ng-click="model.updateState(device._id, 'off')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+            <div style="text-align: right;" ng-if="device.connection!='ONLINE'">
+                <button disabled class="painel-btn-disable painel-btn-toggle btn-disabled"><span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span></button>
+                <button disabled class="painel-btn-disable painel-btn-on btn-disabled"><span class="glyphicon glyphicon-flash" aria-hidden="true" ></span></button>
+                <button disabled class="painel-btn-disable painel-btn-off btn-disabled"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="device.hardware.class == 'sensor_ambiente'" class="painel painel_sensor_ambiente">
+        <div class="painel_title ">
+            {{device.name}} - {{device.area}} - {{device.local}}
+        </div>
+        <div class="painel_content">
+            <div class="painel-txt" style="width:100%">
+                <div class="painel-temperatura">
+                    <div><span style="text-align:right"></span> Temperatura</div>
+                    <div style="text-align: center;">
+                        <span ng-if="device.connection !='OFFLINE'" class="font-temperatura" style="font-size:50px;">{{device.sensor_ambiente.temperature}}ºc</span>
+                        <span ng-if="device.connection=='OFFLINE'" style="font-size:40px;">--</span>
+                        <!--<span ng-if="device.connection !='OFFLINE'" style="font-size:30px; color:#fff; vertical-align: middle;">ºC</span>-->
+                    </div>
+                </div>
+
+                <div class="painel-infor">
+                    <ul class="list-group" style="margin-bottom:0">
+                        <li class="list-group-item painel-list-item">
+                            <button class="btn icon-sensor" style="background: #4fc3f7">
+                                <span class='glyphicon glyphicon-tint'></span> 
+                            </button> Umidade:
+                            <span ng-if="device.connection!='OFFLINE'">{{device.sensor_ambiente.humidity}}%</span>
+                            <span ng-if="device.connection=='OFFLINE'" style="color:rgba(255,255,255,.5)">Desconectado</span>
+                        </li>
+
+                        <li class="list-group-item painel-list-item">
+                            <button class="btn icon-sensor" style="background: #ff5722">
+                                <span class='glyphicon glyphicon-fire'></span> 
+                            </button> Fumaça:
+                            <span ng-if="!device.sensor_ambiente.fire && device.connection !='OFFLINE'" style="color:#fff">Não</span>
+                            <span ng-if="device.sensor_ambiente.fire && device.connection !='OFFLINE'" style="color:rgba(255,255,255,.2)">Sim</span>
+                            <span ng-if="device.connection=='OFFLINE'" style="color:rgba(255,255,255,.5); ">Desconectado</span>
+                        </li>
+
+                        <li class="list-group-item painel-list-item">
+                            <button class="btn icon-sensor" style="background: #5c6bc0">
+                                <span class='glyphicon glyphicon-user'></span> 
+                            </button> Presença:
+                            <span ng-if="!device.sensor_ambiente.presence && device.connection!='OFFLINE'" style="color:#fff">Não</span>
+                            <span ng-if="device.sensor_ambiente.presence && device.connection!='OFFLINE'" style="color:rgba(255,255,255,.2)">Sim</span>
+                            <span ng-if="device.connection=='OFFLINE'" style="color:rgba(255,255,255,.5);">Desconectado</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="painel-img" style="display:none">
+                <div>
+                    <img id="device-img-{{device._id}}" width="100" height="100" src="img/img2.png" alt="Imagem do Dispositivo" />
+
+                    <img ng-if="device.sensor_ambiente.fire && device.connection" id="device-img-fire-{{device._id}}" style=" bottom: 60px;  left: 80px; position: absolute;"
+                        width="40" height="40" src="img/img3.png" alt="Imagem do Dispositivo" />
+                </div>
+            </div>
+            <div class="painel-updated">
+                <span style="float:right; color: #ddd; bottom:0; font-size: 12px;">Atualizado: {{device.modified|  date:"dd/MM '-' H:mm:ss"}}</span>
+            </div>
+            <div class="painel-connection">Status:
+                <span ng-if="device.connection=='OFFLINE'" style="color:rgba(255,255,255,.5)">Indisponível</span>
+                <span ng-if="device.connection=='ONLINE'" style="color:#fff">Disponível</span>
+                <!--<span ng-if="device.connection=='AGUARDANDO'" style="color:#FF8F00">Aguardando</span>-->
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="fadeI painel painel_atuador_analogico" ng-if="device.hardware.class === 'atuador_analogico'">
+        <div class="painel_title">
+            {{device.name}} - {{device.area}} - {{device.local}}
+        </div>
+        <div class="painel_content">
+            <div class="painel-txt" style="max-height: 100px;">
+                <div>
+                    Consumo Atual: {{device.atuador.current}}A</br>
+                    <!--{{device.description}}-->
+                </div>
+                <div>
+                    <div id="slider-{{device._id}}" style="vertical-align: midle; line-height: 60px;">Carregando...</div>
+                </div>
+                <div class="painel-updated">
+                    <span style="float:right; color: #ddd; bottom:0; font-size: 12px;" class="hidden-xs">Atualizado: {{device.modified|  date:"dd/MM '-' H:mm:ss"}}</span>
+                </div>
+
+                <div class="painel-connection">Status:
+                    <span ng-if="device.connection=='OFFLINE'" style="color:rgba(255,255,255,.5)">Indisponível</span>
+                    <span ng-if="device.connection=='ONLINE'" style="color:#fff">Disponível</span>
+                    <!--<span ng-if="device.connection=='AGUARDANDO'" style="color:#FF8F00">Aguardando</span>-->
+                </div>
+            </div>
+
+            <div class="painel-img">
+                <img id="device-img-{{device._id}}" class="imgDevice" width="100" height="100" src="img/{{device.hardware.img}}.png" />
+            </div>
+        </div>
+
+        <div class="painel-buttons">
+            <div style="text-align: right;" ng-if="device.connection=='ONLINE'">
+                <!--<div class="col-xs-12" style="text-align: right;" >-->
+                <!--<button class="painel-btn painel-btn-toggle" ng-click="model.updateState(device._id, 'toggle')"><span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span></button>-->
+                <button class="painel-btn painel-btn-on" ng-click="model.updateValOn(device._id)"><span class="glyphicon glyphicon-flash" aria-hidden="true" ></span></button>
+                <button class="painel-btn painel-btn-off" ng-click="model.updateValOff(device._id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+            <div style="text-align: right;" ng-if="device.connection!='ONLINE'">
+                <!--<button disabled class="painel-btn-disable painel-btn-toggle btn-disabled"><span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span></button>-->
+                <button disabled class="painel-btn-disable painel-btn-on btn-disabled"><span class="glyphicon glyphicon-flash" aria-hidden="true" ></span></button>
+                <button disabled class="painel-btn-disable painel-btn-off btn-disabled"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+
+</div>

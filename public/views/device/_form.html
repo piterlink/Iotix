@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Formulario de cadastro de categoria</div>  
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="name">Nome</label>
+                <input class="form-control" id="name" type="text" ng-model="model.form.name" value="{{model.form.name}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="hardware_id">Serial do dispositivo</label>
+                <input class="form-control" id="hardware_id" type="text" ng-model="model.form.hardware_id" value="{{model.form.hardware_id}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label>Hardware</label>
+                <select class="form-control" ng-options="hardware.name for hardware in model.hardwareList track by hardware._id" ng-model="model.form.hardware">   
+                    <option value=""  disabled selected>Selecione um hardware</option>
+                </select>
+            </div>       
+            <div class="form-group col-xs-12 col-sm-6">
+                <label>Categoria</label>
+                <select class="form-control" ng-options="category.name for category in model.categoryList track by category._id" ng-model="model.form.category">   
+                    <option value=""  disabled selected>Selecione uma categoria</option>
+                </select>
+            </div> 
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="area">Área</label>
+                <input class="form-control" id="area" type="text" ng-model="model.form.area" value="{{model.form.area}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="local">Localização</label>
+                <input class="form-control" id="local" type="text" ng-model="model.form.local" value="{{model.form.local}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 ">
+                <label for="description">Descrição</label>
+                <textarea  class="form-control" id="description" type="text" ng-model="model.form.description" value="{{model.form.description}}"></textarea>
+            </div>  
+            <div class="form-group col-xs-12 col-sm-6">
+                <label>Cliente</label>
+                <select class="form-control" ng-options="client.name for client in model.clientList track by client._id" ng-model="model.form.client">   
+                    <option value=""  disabled selected>Selecione um cliente</option>
+                </select>
+            </div>  
+        </div>
+    </div>
+</div>
+<div class="panel panel-default"> 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <button class="btn btn-success" type="submit" name="action" ng-click="model.save(model.form)">Enviar</button>
+                <button class="btn btn-danger" type="submit" name="action" ng-click="model.cancel()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

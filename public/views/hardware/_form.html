@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading"></div>  
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="name">Nome</label>
+                <input class="form-control" id="name" type="text" ng-model="model.form.name" value="{{model.form.name}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="sinal">Sinal</label>
+                <select class="form-control" id="sinal" type="text"  ng-model="model.form.sinal" value="{{model.form.sinal}}">
+                    <option value="ANALOGICO">Analógico</option>
+                    <option value="DIGITAL">Digital</option>
+                    <option value="DIGITAL-ANALOGICO">Analógico/Digital</option>
+                </select>                    
+            </div>          
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="class">Tipo</label>
+                <select class="form-control" id="class" type="text"  ng-model="model.form.class" value="{{model.form.class}}">
+                    <option value="sensor_padrao">Sensor</option>
+                    <option value="atuador_padrao">Atuador</option>
+                    <option value="atuador_analogico">Atuador Analógico</option>
+                    <option value="sensor_ambiente">Sensor de ambiente</option>
+                </select>                    
+            </div>   
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="img">Imagem</label>
+                <input class="form-control" id="img" type="text" ng-model="model.form.img" value="{{model.form.img}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 ">
+                <label for="description">Descrição</label>
+                <textarea  class="form-control" id="description" type="text" ng-model="model.form.description" value="{{model.form.description}}"></textarea>
+            </div>             
+        </div>
+    </div>
+</div>
+<div class="panel panel-default"> 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <button class="btn btn-success" type="submit" name="action" ng-click="model.save(model.form)">Enviar</button>
+                <button class="btn btn-danger" type="submit" name="action" ng-click="model.cancel()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

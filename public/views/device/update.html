@@ -1,0 +1,10 @@
+<div ng-controller="DeviceUpdateController as model">
+    <div class="page-header">
+        <h2> {{model.title}}<small></small></h2>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="active">{{model.title}}</li>
+    </ol>
+    <div ng-include="'views/device/_form.html'"class="row"></div>
+</div>

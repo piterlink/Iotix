@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de hardwarees</div>  
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sinal</th>
+                        <th>Tipo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="hardware in model.list" id="tr_{{hardware._id}}">
+                        <td>{{hardware.name}}</td>
+                        <td>{{hardware.sinal}}</td>
+                        <td>{{hardware.class}}</td>
+                        <td>{{hardware.description}}</td>
+                        <td style="text-align: right">
+                            <button class="btn btn-floating btn-view"><span class="glyphicon glyphicon-search" ></span></button>
+                            <a href="#!/{{model.action}}/update/{{hardware._id}}"><button class="btn btn-floating btn-update" ><span class="glyphicon glyphicon-pencil" ></span></button></a>
+                            <button class="btn btn-floating btn-delete" ng-click="model.delete(hardware._id)"><span class="glyphicon glyphicon-remove" ></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

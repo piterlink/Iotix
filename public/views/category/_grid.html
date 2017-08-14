@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de categorias</div>  
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Client</th>
+                        <th>Descrição</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="category in model.list" id="tr_{{category._id}}">
+                        <td>{{category.name}}</td>
+                        <td>{{category.client.name}}</td>
+                        <td>{{category.description}}</td>
+                        <td style="text-align: right">
+                            <button class="btn btn-floating btn-view"><span class="glyphicon glyphicon-search" ></span></button>
+                            <a href="#!/category/update/{{category._id}}"><button class="btn btn-floating btn-update" ><span class="glyphicon glyphicon-pencil" ></span></button></a>
+                            <button class="btn btn-floating btn-delete" ng-click="model.delete(category._id)"><span class="glyphicon glyphicon-remove" ></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

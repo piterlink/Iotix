@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragma" content="no-cache">
+    <!--<link href="bower_components/materialize/dist/css/materialize.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--<link href="css/style.css" rel="stylesheet" type="text/css" />-->
+    <link href="css/slider.css" rel="stylesheet" type="text/css" />
+    <link href="css/Template.css" rel="stylesheet" type="text/css" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body ng-app="IotixApp" ng-controller="MainController">
+    <div ng-if="location.path() !== '/site/login'">
+        <div ng-include="'views/tpl/navbar.html'" ng-if="location.path() !== '/site/login'"></div>
+        <div class="container-fluid">
+            <div ng-include="'views/tpl/sidebar.html'"></div>
+            <div class="content">
+                <div class="{{pageClass}} container-fluid content-view" ng-view></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="{{pageClass}} container-fluid content-view" ng-view ng-if="location.path() === '/site/login'"></div>
+    </div>
+
+    <script src="http://192.168.0.15:3000/socket.io/socket.io.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="bower_components/angular-route/angular-route.js" type="text/javascript"></script>
+    <!--<script src="bower_components/angular-animate/angular-animate.js" type="text/javascript"></script>-->
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.js" type="text/javascript"></script>
+    <script src="bower_components/ngstorage/ngStorage.js" type="text/javascript"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js" type="text/javascript"></script>
+    
+    <script src="bower_components/chart.js/dist/Chart.js" type="text/javascript"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js" type="text/javascript"></script>
+
+
+    <script src="app/main.js" type="text/javascript"></script>
+    <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+    <script src="plugin/jQuery-Mask-Plugin/jquery.mask.js" type="text/javascript"></script>
+    <script src="app/controllers/MainController.js" type="text/javascript"></script>
+    <script src="plugin/Template.js" type="text/javascript"></script>
+
+  
+</body>
+
+
+
+
+</html>

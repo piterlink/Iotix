@@ -1,0 +1,16 @@
+<div ng-controller="DeviceIndexController as model"  class="container">
+    <div>
+        <h4 class="teal-text text-darken-4">{{model.title}}</h4>
+    </div>
+    <nav>
+        <div class="nav-wrapper teal accent" style="padding-left: 20px">
+            <div class="col s12">
+                <a href="#!" class="breadcrumb">Home</a>
+                <a href="#!" class="breadcrumb">{{model.title}}</a>
+            </div>
+        </div>
+    </nav>
+    <div ng-include="'views/device/_card.html'">
+    </div>
+</div>
+

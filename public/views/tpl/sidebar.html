@@ -1,0 +1,40 @@
+<div class="sidebar">
+    <div id="buttonFecharMenu" class="buttonMenu" onclick="fecharMenu()">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </div>
+    <ul>
+        <li ui-sref="{{device/index}}" >
+            <a href="#!/device/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Página Inicial</a>
+        </li>
+
+        <li>
+            <a href="#!/dashboard/index"> <span class="glyphicon glyphicon-lamp" aria-hidden="true"></span> Dashboard</a>
+        </li>
+        <li>
+            <a href="#!/history/index"> <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Histórico</a>
+        </li>
+        
+        <li>
+            <a href="#!/user/index"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuários</a>
+        </li>
+    
+        <li>
+            <a href="#!/device/admin"> <span class="glyphicon glyphicon-lamp" aria-hidden="true"></span> Dispositivos</a>
+        </li>
+
+        <li class="last">
+            <a href="#" ng-click='logout()'> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a>
+        </li>
+    </ul>
+
+    <!--<div class="container">
+        <h2>Simple Collapsible</h2>
+        <p>Click on the button to toggle between showing and hiding content.</p>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+        <div id="demo" class="collapse">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+    </div>-->
+
+</div>

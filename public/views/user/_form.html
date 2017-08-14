@@ -1,0 +1,104 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Informações Pessoais</div>  
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="name">Nome</label>
+                <input class="form-control" id="name" type="text" ng-model="model.form.name" value="{{model.form.name}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="lastname">Sobrenome</label>
+                <input class="form-control" id="lastname" type="text"  ng-model="model.form.lastname" value="{{model.form.lastname}}">
+            </div>          
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="cpf">CPF</label>
+                <input class="form-control" id="cpf" type="text" ng-model="model.form.cpf" value="{{model.form.cpf}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 ">
+                <label for="last_name">Nascimento</label>
+                <input class="form-control" id="birth" type="text"  ng-model="model.form.birth" value="{{model.form.birth}}">
+            </div>    
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Acesso</div>  
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-4 ">
+                <label for="Username">Username</label>
+                <input class="form-control" id="Username" type="text" ng-model="model.form.username" value="{{model.form.username}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-4 ">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="text" ng-model="model.form.email" value="{{model.form.email}}">
+            </div>
+            <div class="form-group col-xs-12 col-sm-4 ">
+                <label for="password">Senha</label>
+                <input class="form-control" id="password" type="password"  ng-model="model.form.password" value="{{model.form.password}}">
+            </div>    
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Atribuições</div>  
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="form-group col-xs-12 col-sm-6">
+                <label>Cliente</label>
+                <select class="form-control" ng-options="client.name for client in model.clientList track by client._id" ng-model="model.form.client">   
+                    <option value=""  disabled selected>Selecione um cliente</option>
+                </select>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Informações Pessoais</div>  
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-4">
+                <label for="cep">Cep</label>
+                <input class="form-control" id="cep" type="text" ng-model="model.form.address.cep" value="{{model.form.address.cep}}">
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-xs-10 col-sm-6">
+                <label for="street">Rua</label>
+                <input class="form-control" id="password" type="text"  ng-model="model.form.address.street" value="{{model.form.street}}" ">
+            </div>    
+            <div class="form-group col-xs-2 col-sm-2">
+                <label for="number">Nº</label>
+                <input class="form-control" id="number" type="text"  ng-model="model.form.address.number" value="{{model.form.number}}" >
+            </div>    
+            <div class="form-group col-xs-12 col-sm-4">
+                <label for="complement">Complemento</label>
+                <input class="form-control" id="complement" type="text"  ng-model="model.form.address.complement" value="{{model.form.complement}}">
+            </div>    
+            <div class="form-group col-xs-12 col-sm-4">
+                <label for="district">Bairro</label>
+                <input class="form-control" id="district" type="text"  ng-model="model.form.address.district" value="{{model.form.district}}" ">
+            </div>    
+            <div class="form-group col-xs-12 col-sm-4">
+                <label for="state">Estado</label>
+                <input class="form-control" id="state" type="text"  ng-model="model.form.address.state" value="{{model.form.state}}" ">
+            </div>    
+            <div class="form-group col-xs-12 col-sm-4">
+                <label for="city">Cidade</label>
+                <input class="form-control" id="city" type="text"  ng-model="model.form.address.city" value="{{model.form.city}}" ">
+            </div>    
+        </div>
+    </div>   
+</div>
+<div class="panel panel-default"> 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <button class="btn btn-success" type="submit" name="action" ng-click="model.save(model.form)">Enviar</button>
+                <button class="btn btn-danger" type="submit" name="action" ng-click="model.cancel()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

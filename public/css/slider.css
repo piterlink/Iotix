@@ -1,0 +1,61 @@
+    .irs-slider {
+        top: 25px;
+        width: 20px;
+        height: 20px;
+        border: none;
+        background: #c2185b;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        box-shadow: none;
+        cursor: pointer;
+    }
+    .irs-slider:hover {
+        top: 25px;
+        width: 20px;
+        height: 20px;
+        border: none;
+        background: #c2185b;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    .irs-line {
+        height: 5px;
+        top: 33px;
+        background: #DDD;
+        border: none;
+        border-radius: 2px;
+        -moz-border-radius: 3px;
+    }
+    .irs-single {
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.333;
+        text-shadow: none;
+        padding: 1px 5px;
+        background: #c2185b;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+
+    .irs-bar {
+        height: 5px;
+        top: 33px;
+        border-top: 1px solid #c2185b;
+        border-bottom: 1px solid #c2185b;
+        background: #c2185b;  
+        border-radius: 10px;
+    }
+
+    .irs-bar-edge {
+        height: 5px;
+        top: 33px;
+        width: 14px;
+        border: 1px solid #c2185b;
+        border-right: 0;
+        background: #c2185b;
+        border-radius: 3px 0 0 3px;
+        -moz-border-radius: 3px 0 0 3px;
+    }
